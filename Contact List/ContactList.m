@@ -20,7 +20,7 @@
 }
 
 -(void)addContact:(Contact *)newContact {
-    
+    [self.contacts addObject:newContact];
 }
 
 @end

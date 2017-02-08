@@ -16,7 +16,6 @@ int main(int argc, const char * argv[]) {
         
         InputCollector *inputCollector = [[InputCollector alloc] init];
         InputCollector *furtherPrompt = [[InputCollector alloc] init];
-        Contact *number1 = [[Contact alloc] init];
         ContactList *contactList = [[ContactList alloc] init];
         
         BOOL loopOn = YES;
@@ -32,8 +31,10 @@ int main(int argc, const char * argv[]) {
             } else if ([usernameInput isEqualToString:@"new"]) {
                 NSString *fullName = [furtherPrompt inputForPrompt:@"please enter full name of contact"];
                 NSString *email = [furtherPrompt inputForPrompt:@"please enter email of contact"];
+                Contact *number1 = [[Contact alloc] init];
                 number1.name = fullName;
                 number1.email = email;
+                [contactList addContact:number1];
                 
             }
             

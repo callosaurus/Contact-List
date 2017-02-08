@@ -7,6 +7,7 @@
 //
 
 #import "ContactList.h"
+#import "Contact.h"
 
 @implementation ContactList
 
@@ -21,6 +22,14 @@
 
 -(void)addContact:(Contact *)newContact {
     [self.contacts addObject:newContact];
+}
+
+-(void)printContactList {
+    int index = 0;
+    for (Contact *contact in _contacts) {
+        NSLog(@"%i: %@", index, contact.name);
+        index++;
+    }
 }
 
 @end

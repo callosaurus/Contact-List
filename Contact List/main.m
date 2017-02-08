@@ -18,6 +18,17 @@ int main(int argc, const char * argv[]) {
         InputCollector *furtherPrompt = [[InputCollector alloc] init];
         ContactList *contactList = [[ContactList alloc] init];
         
+        Contact *sampleContact1 = [[Contact alloc] init];
+        sampleContact1.name = @"Jon Snow";
+        sampleContact1.email = @"jonsnow@thewall.com";
+        [contactList addContact:sampleContact1];
+        
+        Contact *sampleContact2 = [[Contact alloc] init];
+        sampleContact2.name = @"Callum Davies";
+        sampleContact2.email = @"cdavies@sampleemail";
+        [contactList addContact:sampleContact2];
+
+        
         BOOL loopOn = YES;
         
         while (loopOn == YES) {
@@ -31,11 +42,13 @@ int main(int argc, const char * argv[]) {
             } else if ([usernameInput isEqualToString:@"new"]) {
                 NSString *fullName = [furtherPrompt inputForPrompt:@"please enter full name of contact"];
                 NSString *email = [furtherPrompt inputForPrompt:@"please enter email of contact"];
-                Contact *number1 = [[Contact alloc] init];
-                number1.name = fullName;
-                number1.email = email;
-                [contactList addContact:number1];
+                Contact *newContact = [[Contact alloc] init];
+                newContact.name = fullName;
+                newContact.email = email;
+                [contactList addContact:newContact];
                 
+            } else if ([usernameInput isEqualToString:@"list"]) {
+                [contactList printContactList];
             }
             
             
